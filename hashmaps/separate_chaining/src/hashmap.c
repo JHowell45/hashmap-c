@@ -28,8 +28,15 @@ void hashmapAdd(hashmap *map, bucket *item) {
     }
 }
 
-void hashmapSearch(hashmap *map, const char *key) {
-
+bool hashmapSearch(hashmap *map, const char *key) {
+    bucket *item = map->items[hash(key, map->capacity)];
+    while (item != NULL) {
+        if (item->key == key) {
+            return true;
+        }
+        item = item->next;
+    }
+    return false;
 }
 
 // bucket *hashmapGet(hashmap *map, const char *key) {

@@ -2,6 +2,7 @@
 #define HASHMAP_H
 
 #include <stddef.h>
+#include <stdbool.h>
 
 #include "bucket.h"
 
@@ -16,7 +17,7 @@ static size_t hash(const char *key, size_t capacity);
 
 void hashmapAdd(hashmap *map, bucket *item);
 
-void hashmapSearch(hashmap *map, const char *key);
+bool hashmapSearch(hashmap *map, const char *key);
 
 bucket *hashmapGet(hashmap *map, const char *key);
 
