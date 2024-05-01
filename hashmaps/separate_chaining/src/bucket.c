@@ -22,10 +22,10 @@ void bucketAdd(bucket *item, bucket *next) {
 
 void printBucket(bucket *item) {
     printf("{ '%s' => '%s' }", item->key, item->value);
-    bucket *temp = item;
-    while (temp->next != NULL) {
-        printf(" -> { '%s' => '%s' }", temp->key, temp->value);
-        temp = temp->next;
+    bucket *next = item->next;
+    while (next != NULL) {
+        printf(" -> { '%s' => '%s' }", next->key, next->value);
+        next = next->next;
     }
     printf("\n");
 }
