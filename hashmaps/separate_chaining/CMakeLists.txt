@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 3.10)
 project(separate_chaining_hashmap)
 
 set(LIBRARY_NAME hashmap)
-set(EXAMPLE_NAME hashmap_test)
+set(BUCKET_EXAMPLE bucket_test)
+set(HASHMAP_EXAMPLE hashmap_test)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
@@ -12,8 +13,8 @@ add_library(${LIBRARY_NAME}
     ${CMAKE_CURRENT_SOURCE_DIR}/src/hashmap.c
 )
 
-add_executable(${EXAMPLE_NAME}
-    ${CMAKE_CURRENT_SOURCE_DIR}/example/main.c
-)
+add_executable(${BUCKET_EXAMPLE} ${CMAKE_CURRENT_SOURCE_DIR}/example/bucket_test.c)
+target_link_libraries(${BUCKET_EXAMPLE} ${LIBRARY_NAME})
 
-target_link_libraries(${EXAMPLE_NAME} ${LIBRARY_NAME})
+add_executable(${HASHMAP_EXAMPLE} ${CMAKE_CURRENT_SOURCE_DIR}/example/hashmap_test.c)
+target_link_libraries(${HASHMAP_EXAMPLE} ${LIBRARY_NAME})
