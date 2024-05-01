@@ -10,7 +10,7 @@ typedef struct {
     bucket **items;
 } hashmap;
 
-hashmap *newHahsmap(size_t capacity);
+hashmap *newHashmap(size_t capacity);
 
 void hashmapAdd(hashmap *map, bucket *item);
 
