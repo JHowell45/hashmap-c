@@ -40,9 +40,16 @@ bool hashmapExists(hashmap *map, const char *key) {
     return false;
 }
 
-// bucket *hashmapGet(hashmap *map, const char *key) {
-
-// }
+bucket *hashmapGet(hashmap *map, const char *key) {
+    bucket *item = map->items[hash(key, map->capacity)];
+    while (item != NULL) {
+        if (strcmp(item->key, key) == 0) {
+            return item;
+        }
+        item = item->next;
+    }
+    return NULL;
+}
 
 void printHashmap(hashmap *map) {
     printf("hashmap {\n");

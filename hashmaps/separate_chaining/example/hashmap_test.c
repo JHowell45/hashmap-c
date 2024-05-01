@@ -49,6 +49,15 @@ int main(void) {
         printf("Key '%s' exists in map: %d\n", search, hashmapExists(map, search));
     }
 
+    for (int i = 0; i < SEARCH_ARRAY_SIZE; i++) {
+        const char *search = searchKeys[i];
+        bucket *item = hashmapGet(map, search);
+        if (item != NULL) {
+            printf("Key '%s' exists!!! ", search);
+            printBucket(item);
+        }
+    }
+
     freeHashmap(map);
     return 0;
 }
