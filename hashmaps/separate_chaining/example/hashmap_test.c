@@ -27,6 +27,24 @@ int main(void) {
     }
     printHashmap(map);
 
+    char searchKeys[ARRAY_SIZE][10] = {
+        "cat",
+        "dog",
+        "bat",
+        "one",
+        "rat",
+        "two",
+        "wolf",
+        "five",
+        "bobcat",
+        "seven",
+    };
+
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        const char *search = searchKeys[i];
+        printf("Key '%s' exists in map: %d\n", search, hashmapExists(map, search));
+    }
+
     freeHashmap(map);
     return 0;
 }
