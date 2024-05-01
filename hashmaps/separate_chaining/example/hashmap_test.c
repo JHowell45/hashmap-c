@@ -5,6 +5,7 @@
 
 const size_t MAP_SIZE = 10;
 const size_t ARRAY_SIZE = 10;
+const size_t SEARCH_ARRAY_SIZE = 11;
 
 int main(void) {
     hashmap *map = newHashmap(MAP_SIZE);
@@ -24,24 +25,26 @@ int main(void) {
 
     for (int i = 0; i < ARRAY_SIZE; i++) {
         bucket *item = newBucket(keys[i], "animal");
+        printBucket(item);
         hashmapAdd(map, item);
     }
     printHashmap(map);
 
-    char searchKeys[ARRAY_SIZE][10] = {
+    char searchKeys[SEARCH_ARRAY_SIZE][10] = {
         "cat",
         "dog",
         "bat",
-        "one",
+        "elephant",
         "rat",
-        "two",
+        "lion",
         "wolf",
-        "five",
+        "giraffe",
         "bobcat",
-        "seven",
+        "tiger",
+        "one"
     };
 
-    for (int i = 0; i < ARRAY_SIZE; i++) {
+    for (int i = 0; i < SEARCH_ARRAY_SIZE; i++) {
         const char *search = searchKeys[i];
         printf("Key '%s' exists in map: %d\n", search, hashmapExists(map, search));
     }
