@@ -3,10 +3,11 @@
 #include "bucket.h"
 #include "hashmap.h"
 
+const size_t MAP_SIZE = 10;
 const size_t ARRAY_SIZE = 10;
 
 int main(void) {
-    hashmap *map = newHashmap(100);
+    hashmap *map = newHashmap(MAP_SIZE);
 
     char keys[ARRAY_SIZE][10] = {
         "cat",
