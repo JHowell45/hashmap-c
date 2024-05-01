@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "bucket.h"
 #include "hashmap.h"
@@ -28,10 +29,10 @@ void hashmapAdd(hashmap *map, bucket *item) {
     }
 }
 
-bool hashmapSearch(hashmap *map, const char *key) {
+bool hashmapExists(hashmap *map, const char *key) {
     bucket *item = map->items[hash(key, map->capacity)];
     while (item != NULL) {
-        if (item->key == key) {
+        if (strcmp(item->key, key) == 0) {
             return true;
         }
         item = item->next;

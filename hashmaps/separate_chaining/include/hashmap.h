@@ -17,7 +17,7 @@ static size_t hash(const char *key, size_t capacity);
 
 void hashmapAdd(hashmap *map, bucket *item);
 
-bool hashmapSearch(hashmap *map, const char *key);
+bool hashmapExists(hashmap *map, const char *key);
 
 bucket *hashmapGet(hashmap *map, const char *key);
 
