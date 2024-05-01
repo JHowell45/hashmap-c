@@ -1,9 +1,31 @@
 #include <stdio.h>
 
+#include "bucket.h"
 #include "hashmap.h"
+
+const size_t ARRAY_SIZE = 10;
 
 int main(void) {
     hashmap *map = newHashmap(100);
+
+    char keys[ARRAY_SIZE][10] = {
+        "cat",
+        "dog",
+        "bat",
+        "elephant",
+        "rat",
+        "lion",
+        "wolf",
+        "giraffe",
+        "bobcat",
+        "tiger",
+    };
+
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        bucket *item = newBucket(keys[i], "animal");
+        hashmapAdd(map, item);
+    }
+    printHashmap(map);
 
     freeHashmap(map);
     return 0;

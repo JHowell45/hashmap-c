@@ -12,6 +12,8 @@ typedef struct {
 
 hashmap *newHashmap(size_t capacity);
 
+static size_t hash(const char *key, size_t capacity);
+
 void hashmapAdd(hashmap *map, bucket *item);
 
 void hashmapSearch(hashmap *map, const char *key);
