@@ -7,7 +7,7 @@ const size_t MAP_SIZE = 10;
 const size_t ARRAY_SIZE = 10;
 const size_t SEARCH_ARRAY_SIZE = 11;
 
-int main(void) {
+void basicTest(void) {
     hashmap *map = newHashmap(MAP_SIZE);
 
     char keys[ARRAY_SIZE][10] = {
@@ -59,5 +59,13 @@ int main(void) {
     }
 
     freeHashmap(map);
+}
+
+void bigTest(void) {
+    hashmap *map = newHashmap(10000);
+}
+
+int main(void) {
+    basicTest();
     return 0;
 }
