@@ -33,11 +33,11 @@ typedef struct {
 
 hashmap *newResizeHashmap(size_t capacity);
 
+bool resizeHashmapExists(hashmap *map, const char *key);
+
+bucket *resizeHashmapGet(hashmap *map, const char *key);
+
 void resizeHashmapAdd(resize_hashmap *map, bucket *item);
-
-bool hashmapExists(hashmap *map, const char *key);
-
-bucket *hashmapGet(hashmap *map, const char *key);
 
 void printResizeHashmap(resize_hashmap *map);
 
