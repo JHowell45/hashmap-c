@@ -73,3 +73,41 @@ void freeHashmap(hashmap *map) {
     free(map->items);
     free(map);
 }
+
+hashmap *newResizeHashmap(size_t capacity) {
+    resize_hashmap *map = malloc(sizeof(resize_hashmap));
+    map->capacity = capacity;
+    map->count = 0;
+    map->items = calloc(map->capacity, sizeof(bucket*));
+    return map;
+}
+
+void resize(resize_hashmap *map) {
+
+}
+
+bool resizeHashmapExists(hashmap *map, const char *key) {
+
+}
+
+bucket *resizeHashmapGet(hashmap *map, const char *key) {
+
+}
+
+void resizeHashmapAdd(resize_hashmap *map, bucket *item) {
+    if (resizeHashmapExists(map, item)) {
+        return;
+    }
+    map->count++;
+    if (map->count > map->capacity) {
+        resize(map);
+    }
+}
+
+void printResizeHashmap(resize_hashmap *map) {
+
+}
+
+void freeResizehashmap(resize_hashmap *map) {
+
+}
